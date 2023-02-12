@@ -1,14 +1,20 @@
 /* eslint-disable eqeqeq */
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom';
 import './Home.css'
 
 const Home = () => {
+    const amountInputRef = useRef();
+    const enteredAmount = amountInputRef.current?.value;
+
     const [text, setText] = useState('');
     const history = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        if (enteredAmount == 'sapa') {
+            alert('sapa dey')
+        }
         if (text == 'doyin') {
             history('/lover')
 
@@ -35,7 +41,9 @@ const Home = () => {
         }
         else {
             alert('lol wetin you dey do guy lmaoooooo 😂😂')
-
+            //    reset()
+            console.log(enteredAmount)
+            // '' = enteredAmount
         }
     }
     return (
@@ -47,7 +55,9 @@ const Home = () => {
                 <form onSubmit={handleSubmit} >
 
                     <label>Type in the name you call me</label>
-                    <input type='text' placeholder="Type in your baby's name"
+                    <input
+                        ref={amountInputRef}
+                        type='text' placeholder="Type in your baby's name"
                         onChange={(e) => setText(e.currentTarget.value.toLocaleLowerCase())}
 
                     />
