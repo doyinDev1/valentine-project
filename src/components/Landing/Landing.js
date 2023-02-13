@@ -1,16 +1,36 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Landing.css'
-import Marquee from "react-fast-marquee";
 import sample from '../../assests/images/sample.mp4'
+import { useNavigate } from 'react-router-dom';
+import Confetti from 'react-confetti'
+import useWindowSize from 'react-use/lib/useWindowSize'
+
 
 const Landing = () => {
-  return (
-    <div className='landing'>
+  const { width, height } = useWindowSize()
 
-      <video className='videoTag' autoPlay >
-        <source src={sample} type='video/mp4' />
-      </video>
-    </div>
+  const history = useNavigate()
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      // Your code to run after 30 seconds goes here
+      history("/")
+    }, 33000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+  return (
+    <>
+
+      <div className='landing'>
+
+        <video className='videoTag' autoPlay loop>
+          <source src={sample} type='video/mp4' />
+        </video>
+      </div>
+    </>
+
   )
 }
 

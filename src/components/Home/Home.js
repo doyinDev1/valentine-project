@@ -1,14 +1,21 @@
 /* eslint-disable eqeqeq */
-import React, { useState, useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import sample from '../../assests/images/sample3.mp3'
 import './Home.css'
 
 const Home = () => {
     const amountInputRef = useRef();
     const enteredAmount = amountInputRef.current?.value;
-
+    const audioRef = useRef(null);
+    const [isPlaying, setIsPlaying] = useState(false);
     const [text, setText] = useState('');
     const history = useNavigate()
+
+    useEffect(() => {
+        audioRef.current.play();
+        setIsPlaying(true);
+    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -28,26 +35,25 @@ const Home = () => {
 
         }
         else if (text == 'dee') {
-            alert("nope that's our safe word 🤭🤭")
+            alert("nope that will be our safe word 🤭🤭")
 
         }
         else if (text == 'john') {
             alert('we both know i hate that name dfkm 😂😂')
 
         }
-        else if (text == 'dbaby') {
-            alert('dababy ni')
+        else if (text == 'baby') {
+            alert('dababy ni 😂')
 
         }
         else {
             alert('lol wetin you dey do guy lmaoooooo 😂😂')
-            //    reset()
-            console.log(enteredAmount)
-            // '' = enteredAmount
         }
     }
     return (
         <>
+            <audio ref={audioRef} src={sample} loop autoPlay type="audio/mp3" />
+
             <div className='home'>
                 <h1>Hey Beautiful,<br /> you are here...<br />WELCOME </h1>
                 <div className="input">
