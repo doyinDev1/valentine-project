@@ -7,7 +7,7 @@ const Landing = () => {
   return (
     <div className='landing'>
 
-      <video className='videoTag' autoPlay loop muted={true}>
+      <video className='videoTag' autoPlay >
         <source src={sample} type='video/mp4' />
       </video>
     </div>
