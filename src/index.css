@@ -12,3 +12,8 @@ box-sizing: border-box;
     src: url(./assests/fonts/YungJakesNewHandwriting-Regular.ttf);
 }
   
+@font-face {
+    font-family: "Manrope";
+    src: url(./assests/fonts//manrope-regular.otf);
+}
+  
