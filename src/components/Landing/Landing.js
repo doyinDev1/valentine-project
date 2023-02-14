@@ -14,7 +14,7 @@ const Landing = () => {
     const timer = setTimeout(() => {
       // Your code to run after 30 seconds goes here
       history("/")
-    }, 33000);
+    }, 34000);
 
     return () => {
       clearTimeout(timer);
